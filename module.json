@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "../module.schema.json",
+  "SystemName": "Smartstore.ProductViewTracker",
+  "FriendlyName": "Product View Tracker",
+  "Author": "Fatih Dogan",
+  "Version": "1.0.0",
+  "Group": "Analytics",
+  "Description": "Tracks and displays product view counts.",
+  "MinAppVersion": "5.0.0",
+  "Order": 1
+}
