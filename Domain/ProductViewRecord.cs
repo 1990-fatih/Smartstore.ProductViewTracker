@@ -8,10 +8,12 @@ namespace Smartstore.ProductViewTracker.Domain
 {
     [Table("ProductView")]
     [Index(nameof(ProductId), Name = "IX_ProductView_ProductId")]
-    public class ProductViewRecord : BaseEntity
+    public class ProductView : BaseEntity
     {
         public int ProductId { get; set; }
-        public DateTime LastViewedOn { get; set; }
+
         public int ViewCount { get; set; }
+
+        public DateTime LastViewedOn { get; set; }
     }
 }

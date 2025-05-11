@@ -1,0 +1,5 @@
+﻿<Language Name="English" LanguageCulture="en-US" UniqueSeoCode="en" FlagImageFileName="us.png" Published="true" DisplayOrder="1" Rtl="false">
+    <LocaleResource Name="ProductViewTracker.Sample">
+        <Value>Sample text</Value>
+    </LocaleResource>
+</Language>

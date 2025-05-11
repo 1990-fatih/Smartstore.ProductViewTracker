@@ -7,6 +7,7 @@ using Smartstore.Data;
 using Smartstore.Data.Providers;
 using Smartstore.Core.Data;
 using System;
+using Smartstore.ProductViewTracker.Domain;
 
 
 

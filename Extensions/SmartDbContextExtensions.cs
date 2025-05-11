@@ -7,7 +7,7 @@ namespace Smartstore.ProductViewTracker.Extensions
 {
     public static class SmartDbContextExtensions
     {
-        public static DbSet<ProductViewRecord> ProductViews(this SmartDbContext db)
-            => db.Set<ProductViewRecord>();
+        public static DbSet<ProductView> ProductViews(this SmartDbContext db)
+            => db.Set<ProductView>();
     }
 }

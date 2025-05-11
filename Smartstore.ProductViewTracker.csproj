@@ -5,6 +5,9 @@
         <OutputPath>..\..\Smartstore.Web\Modules\Smartstore.ProductViewTracker</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
     </PropertyGroup>
+    <ItemGroup>
+      <Content Remove="Localization\en-US.xml" />
+    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\Smartstore.Core\Smartstore.Core.csproj" />

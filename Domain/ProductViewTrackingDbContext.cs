@@ -1,9 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Smartstore.Data;
+using Smartstore.ProductViewTracker.Domain;
 
-public class ProductViewTrackingDbContext : DbContextBase
+namespace Smartstore.ProductViewTracker.Domain
 {
-    public ProductViewTrackingDbContext(DbContextOptions options) : base(options) { }
+    public class ProductViewTrackingDbContext : DbContext
+    {
+        public ProductViewTrackingDbContext(DbContextOptions options) : base(options) { }
 
-    public DbSet<ProductView> ProductViews { get; set; }
+        public DbSet<ProductView> ProductViews { get; set; }
+    }
 }

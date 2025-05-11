@@ -15,17 +15,17 @@ public class ProductViewTrackingService : IProductViewTrackingService
 
     public async Task RecordViewAsync(int productId)
     {
-        var record = await _db.ProductViewRecords.FirstOrDefaultAsync(x => x.ProductId == productId);
+        var record = await _db.ProductViews.FirstOrDefaultAsync(x => x.ProductId == productId);
 
         if (record == null)
         {
-            record = new ProductViewRecord
+            record = new ProductView
             {
                 ProductId = productId,
                 LastViewedOn = DateTime.UtcNow,
                 ViewCount = 1
             };
-            await _db.ProductViewRecords.AddAsync(record);
+            await _db.ProductViews.AddAsync(record);
         }
         else
         {
@@ -38,7 +38,7 @@ public class ProductViewTrackingService : IProductViewTrackingService
 
     public async Task<int> GetViewCountAsync(int productId)
     {
-        var record = await _db.ProductViewRecords.FirstOrDefaultAsync(x => x.ProductId == productId);
+        var record = await _db.ProductViews.FirstOrDefaultAsync(x => x.ProductId == productId);
         return record?.ViewCount ?? 0;
     }
 }
