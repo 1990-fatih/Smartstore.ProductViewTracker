@@ -5,6 +5,8 @@ using Smartstore.ProductViewTracker.Services;
 using Microsoft.EntityFrameworkCore;
 using Smartstore.Data;
 using Smartstore.Data.Providers;
+using Smartstore.Core.Data;
+using System;
 
 
 
@@ -14,11 +16,15 @@ namespace Smartstore.ProductViewTracker
     {
         public override void ConfigureServices(IServiceCollection services, IApplicationContext appContext)
         {
-            // Doğru context configurator'ı ekliyoruz
-            services.AddTransient<IDbContextConfigurationSource<ProductViewTrackingDbContext>, ProductViewTrackingDbContextConfigurer>();
+            services.AddTransient<IDbContextConfigurationSource<SmartDbContext>, SmartDbContextConfigurer>();
+        }
 
-            // Servis kaydı
-            services.AddScoped<IProductViewTrackingService, ProductViewTrackingService>();
+        private class SmartDbContextConfigurer : IDbContextConfigurationSource<SmartDbContext>
+        {
+            public void Configure(IServiceProvider services, DbContextOptionsBuilder builder)
+            {
+                builder.UseDbFactory(b => b.AddModelAssembly(GetType().Assembly));
+            }
         }
     }
 }

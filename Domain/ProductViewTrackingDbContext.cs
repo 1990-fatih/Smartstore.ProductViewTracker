@@ -1,16 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Smartstore.ProductViewTracker.Domain;
+using Smartstore.Data;
 
-public class ProductViewTrackingDbContext : DbContext
+public class ProductViewTrackingDbContext : DbContextBase
 {
-    public ProductViewTrackingDbContext(DbContextOptions<ProductViewTrackingDbContext> options)
-        : base(options) { }
+    public ProductViewTrackingDbContext(DbContextOptions options) : base(options) { }
 
-    public DbSet<ProductViewRecord> ProductViewRecords { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<ProductViewRecord>().ToTable("ProductViewRecord");
-        base.OnModelCreating(modelBuilder);
-    }
+    public DbSet<ProductView> ProductViews { get; set; }
 }

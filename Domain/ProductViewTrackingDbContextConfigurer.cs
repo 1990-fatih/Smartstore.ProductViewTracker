@@ -1,9 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Smartstore.Core.Data;
-using Smartstore.Data.Providers;
 using Smartstore.Data;
+using Smartstore.Data.Providers;
 
 namespace Smartstore.ProductViewTracker.Domain
 {
@@ -11,9 +10,9 @@ namespace Smartstore.ProductViewTracker.Domain
     {
         public void Configure(IServiceProvider services, DbContextOptionsBuilder builder)
         {
-            builder.UseDbFactory(b =>
+            builder.UseDbFactory(factory =>
             {
-                b.AddModelAssembly(typeof(ProductViewTrackingDbContext).Assembly);
+                factory.AddModelAssembly(typeof(ProductViewTrackingDbContext).Assembly);
             });
         }
     }
